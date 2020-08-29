@@ -69,7 +69,7 @@ std::ostream& Sphere::print(std::ostream& os) const
         << "Radius: " << radius_ << "\n";
     return os;
 }
-/*
+
 std::shared_ptr<Hit> Sphere::intersect(Ray const& ray) const
 {
     glm::vec3 position;
@@ -88,4 +88,3 @@ std::shared_ptr<Hit> Sphere::intersect(Ray const& ray) const
 //Diese Methode gibt einen Shared:ptr auf einen Hit zurück, ob der Ray der übergeben wird das Objekt von Sphere trifft.
 //Dafür braucht die Methode zusätzlich noch die Distanz, die übergeben wird und nimmt sich die Attribute aus der Sphere Klasse
 
-*/

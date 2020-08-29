@@ -1,8 +1,8 @@
 #ifndef SPHERE_HPP
 #define SPHERE_HPP
-//#include "ray.hpp"
+#include "ray.hpp"
 #include "shape.hpp"
-//#include "hit.hpp"
+#include "hit.hpp"
 #include <glm/vec3.hpp>
 
 class Sphere : public Shape
@@ -27,7 +27,7 @@ public:
 
     std::ostream& print(std::ostream& os) const override;
 
-    // std::shared_ptr<Hit> intersect(Ray const& ray) const; //per referenz schon sinnvoll
+     std::shared_ptr<Hit> intersect(Ray const& ray) const; //per referenz schon sinnvoll
 
      //private: 
     glm::vec3 center_;

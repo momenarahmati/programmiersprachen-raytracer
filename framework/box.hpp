@@ -2,7 +2,9 @@
 #define BOX_HPP
 
 #include "shape.hpp"
-//#include "hit.hpp"
+#include "hit.hpp"
+#include "ray.hpp"
+#include "ebene.hpp"
 #include <glm/vec3.hpp>
 
 class Box : public Shape //eine Klasse Box von der Basisklasse Shape
@@ -18,12 +20,13 @@ public:
     //Get-Methoden
     glm::vec3 get_min() const;
     glm::vec3 get_max() const;
+    
+    
 
-
-    //virtual Methoden aus Shape
-  //  float area() const override; //override versichert dass in der Basisklasse eine virtuelle Methode mit dem selben Namen & Signatur gibt 
+   // virtual Methoden aus Shape
+   // float area() const override; //override versichert dass in der Basisklasse eine virtuelle Methode mit dem selben Namen & Signatur gibt 
    // float volume() const override;
-   // std::shared_ptr<Hit> intersect(Ray const& ray) const override;
+    std::shared_ptr<Hit> intersect(Ray const& ray) const override;
 
 
     std::ostream& print(std::ostream& os) const override;

@@ -7,6 +7,8 @@
 #include <string> // std::string 
 #include <iostream> 
 #include <memory> // shared_ptr
+#include "hit.hpp"
+#include "ray.hpp"
 
 class Shape
 {
@@ -17,7 +19,7 @@ public:
 
   //  virtual float area() const = 0; //hier wird noch nicht implementiert
   //  virtual float volume() const = 0; //wir können kein statisches/dynamisches Objekt von Shape anlegen sondern nur ein Pointer/Referenz
-  //  virtual std::shared_ptr<Hit> intersect(Ray const& ray) const = 0;
+    virtual std::shared_ptr<Hit> intersect(Ray const& ray) const = 0;
 
 
 

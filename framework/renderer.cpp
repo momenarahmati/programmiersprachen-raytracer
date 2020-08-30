@@ -35,6 +35,23 @@ void Renderer::render()
   }
   ppm_.save(filename_);
 }
+/*
+void Renderer::render(Scene const& scene)
+{
+    for (int i = 0; i < 2; ++i)
+    {
+        // send a ray through each pixel
+        for (unsigned y = 0; y < height_; ++y)
+        {
+            for (unsigned x = 0; x < width_; ++x)
+            {
+                Pixel p(x, y);
+                Ray ray = scene.camera.shoot_ray(x,y, width_, height_);
+            }
+        }
+    }
+}
+*/
 
 void Renderer::write(Pixel const& p)
 {

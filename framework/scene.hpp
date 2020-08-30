@@ -9,7 +9,7 @@
 #include<vector>
 #include<memory> //shared_ptr
 #include<algorithm>
-
+#include "camera.hpp"
 #include"shape.hpp"
 #include"material.hpp"
 

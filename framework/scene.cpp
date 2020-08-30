@@ -87,6 +87,18 @@ Scene open_sdf(std::string const& sdf_name)
 
 				}
 			}
+			if ("camera" == class_name)
+			{
+				Camera camera1;
+				line_stream >> camera1.name_;
+				line_stream >> camera1.position_.x;
+				line_stream >> camera1.position_.y;
+				line_stream >> camera1.position_.z;
+				line_stream >> camera1.angle_;
+				new_scene.camera = camera1;
+				std::cout << camera1 << "\n";
+
+			}
 		}
 	}
 	dat_ein.close();

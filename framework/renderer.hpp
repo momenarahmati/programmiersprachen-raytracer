@@ -18,6 +18,8 @@
 #include "sphere.hpp"
 #include "scene.hpp"
 #include "camera.hpp"
+#include "ray.hpp"
+#include "light.hpp"
 #include <cmath>
 #include <iostream>
 #include<glm/vec3.hpp>
@@ -32,6 +34,8 @@ public:
 
   void render();
   //void render(Scene const& scene);
+  //Color trace(Scene const& scene, Ray const& ray);
+  //Color shade(Shape const& shape, Ray const& ray, std::shared_ptr<Hit> hit, Scene const& scene);
   void write(Pixel const& p);
 
   inline std::vector<Color> const& color_buffer() const

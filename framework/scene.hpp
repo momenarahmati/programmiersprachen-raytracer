@@ -12,6 +12,7 @@
 #include "camera.hpp"
 #include"shape.hpp"
 #include"material.hpp"
+#include"light.hpp"
 
 // um auf unseren material_ptr zu verweisen
 using material_ptr = std::shared_ptr<Material>;
@@ -20,7 +21,7 @@ using shape_ptr = std::shared_ptr<Shape>;
 struct Scene
 {
 	std::string name = "default scene_name";
-	
+	Camera camera;
 	std::map<std::string, std::shared_ptr<Material>> material_map;
 	std::vector<std::shared_ptr<Shape>> shape_vector;
 	

@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/intersect.hpp>
 #include <iostream>
+#include "camera.hpp"
 
 //Datentransferobjekt Ray 
 struct Ray

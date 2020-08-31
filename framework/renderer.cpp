@@ -47,9 +47,48 @@ void Renderer::render(Scene const& scene)
             {
                 Pixel p(x, y);
                 Ray ray = scene.camera.shoot_ray(x,y, width_, height_);
+                Color color{0.0, 0.0, 0.0};
+                p.color = color;
+                write(p);
+            }
+        }
+        ppm_.save(filename_ + "_" + std::to_string(i) + ".ppm");
+    }
+}
+
+Color Renderer::trace(Scene const& scene, Ray const& ray)
+{
+    Color backgroundColor{0.2, 0.2, 0.2};
+    std::shared_ptr<Hit> hit = nullptr;
+    std::shared_ptr<Hit> closest_hit = nullptr;
+    std::shared_ptr<Shape> closest_object{nullptr};
+    float closest_distance = 1000000;
+
+    for (auto const& i : scene.shape_vector)
+    {
+        hit = (*i).intersect(ray);
+        if (hit != nullptr)
+        {
+            if (glm::length(hit->position - ray.origin) < closest_distance)
+            {
+                closest_hit = hit;
+                closest_distance = glm::length(hit->position - ray.origin);
+                closest_object = i;
             }
         }
     }
+    if (closest_object != nullptr)
+    {
+        Color pix_col = shade(*closest_object, ray, closest_hit, scene);
+        return pix_col;
+    }
+    return backgroundColor;
+}
+*/
+/*
+Color Renderer::shade(Shape const& shape, Ray const& ray, std::shared_ptr<Hit> hit, Scene const& scene)
+{
+    return { 0.0,0.0,1.0 };
 }
 */
 

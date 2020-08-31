@@ -86,18 +86,34 @@ Scene open_sdf(std::string const& sdf_name)
 					}
 
 				}
-			}
-			if ("camera" == class_name)
-			{
-				Camera camera1;
-				line_stream >> camera1.name_;
-				line_stream >> camera1.position_.x;
-				line_stream >> camera1.position_.y;
-				line_stream >> camera1.position_.z;
-				line_stream >> camera1.angle_;
-				new_scene.camera = camera1;
-				std::cout << camera1 << "\n";
+				if ("light" == class_name)
+				{
+					auto new_light_ptr = std::make_shared<Light>();
+					line_stream >> new_light_ptr->name_;
+					line_stream >> new_light_ptr->position_.x;
+					line_stream >> new_light_ptr->position_.y;
+					line_stream >> new_light_ptr->position_.z;
+					line_stream >> new_light_ptr->color_.r;
+					line_stream >> new_light_ptr->color_.g;
+					line_stream >> new_light_ptr->color_.b;
+					line_stream >> new_light_ptr->brightness_;
 
+					std::cout << *new_light_ptr << "\n";
+					(new_scene.light_vector).push_back(new_light_ptr);
+				}
+				}
+				if ("camera" == class_name)
+				{
+					Camera camera1;
+					line_stream >> camera1.name_;
+					line_stream >> camera1.position_.x;
+					line_stream >> camera1.position_.y;
+					line_stream >> camera1.position_.z;
+					line_stream >> camera1.angle_;
+					new_scene.camera = camera1;
+					std::cout << camera1 << "\n";
+
+				}
 			}
 		}
 	}

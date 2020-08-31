@@ -3,6 +3,7 @@
 
 Scene open_sdf(std::string const& sdf_name)
 {
+	Scene new_scene;
 	std::ifstream dat_ein; // ifstram darf nur in der Datei lesen
 	dat_ein.open(sdf_name);
 	std::string buffer;
@@ -43,7 +44,7 @@ Scene open_sdf(std::string const& sdf_name)
 				(new_scene.material_map).insert(make_pair(new_material_ptr->name, new_material_ptr));
 				//Speichern des neuen Materials in einer Map mit dem namen des Materials als key 
 				//und einem pointer auf dieses Material als value 
-
+			}
 				//SHAPE einlesen 
 				if ("shape" == class_name)
 				{
@@ -62,7 +63,7 @@ Scene open_sdf(std::string const& sdf_name)
 						line_stream >> new_box_ptr->max_.z;
 
 						line_stream >> class_name;
-						new_box_ptr->m_ = find_material(calss_name, new_scene.material_map);
+						new_box_ptr->m_ = find_material(class_name, new_scene.material_map);
 						//das Material der Box wird in unserer Map gesucht 
 						(new_scene.shape_vector).push_back(new_box_ptr);
 						std::cout << *new_box_ptr << "\n";
@@ -101,7 +102,6 @@ Scene open_sdf(std::string const& sdf_name)
 					std::cout << *new_light_ptr << "\n";
 					(new_scene.light_vector).push_back(new_light_ptr);
 				}
-				}
 				if ("camera" == class_name)
 				{
 					Camera camera1;
@@ -114,7 +114,7 @@ Scene open_sdf(std::string const& sdf_name)
 					std::cout << camera1 << "\n";
 
 				}
-			}
+			
 		}
 	}
 	dat_ein.close();

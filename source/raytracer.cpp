@@ -15,11 +15,11 @@ int main(int argc, char* argv[])
 
   Renderer renderer{image_width, image_height, filename};
   
-  /*
+  
   Scene new_scene;
   new_scene = open_sdf("scene.sdf");
-  renderer.render(new_scene);
-  */
+  renderer.render();
+  
 
 
   Window window{{image_width, image_height}};

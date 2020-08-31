@@ -9,6 +9,7 @@
 //Datentransferobjekt Ray 
 struct Ray
 {
+public:
     glm::vec3 origin = { 0.0f, 0.0f, 0.0f };
     glm::vec3 direction = { 0.0f, 0.0f, -1.0f };
 
@@ -20,6 +21,8 @@ struct Ray
     Ray(glm::vec3 origin_, glm::vec3 direction_) :
         origin{ origin_ },
         direction{ glm::normalize(direction_) } {}
+
+
 
 };
 

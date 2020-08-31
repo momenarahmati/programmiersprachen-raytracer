@@ -11,6 +11,8 @@
 #include<algorithm>
 #include "camera.hpp"
 #include"shape.hpp"
+#include"box.hpp"
+#include"sphere.hpp"
 #include"material.hpp"
 #include"light.hpp"
 

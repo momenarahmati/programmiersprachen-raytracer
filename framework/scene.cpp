@@ -1,6 +1,11 @@
 #include "scene.hpp"
 
 
+Ray shootRay(float x, float y, float width_, float height_)
+{
+	return Ray();
+}
+
 Scene open_sdf(std::string const& sdf_name)
 {
 	Scene new_scene;

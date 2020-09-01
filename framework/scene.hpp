@@ -15,6 +15,8 @@
 #include"sphere.hpp"
 #include"material.hpp"
 #include"light.hpp"
+#include"ray.hpp"
+
 
 // um auf unseren material_ptr zu verweisen
 using material_ptr = std::shared_ptr<Material>;
@@ -31,7 +33,6 @@ struct Scene
 	
 
 };
-
 Scene open_sdf(std::string const& sdf_name); // Der Rückgabetyp ist eine Scene
 std::shared_ptr<Material> find_material(std::string const& eingabe, std::map<std::string, std::shared_ptr<Material>> const& material_map);
 std::shared_ptr<Shape> find_shape(std::string const& eingabe, std::vector<std::shared_ptr<Shape>> const& shape_vector);

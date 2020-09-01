@@ -27,13 +27,15 @@
 #include <glm/glm.hpp>
 
 
+
 class Renderer
 {
 public:
+
   Renderer(unsigned w, unsigned h, std::string const& file);
 
   void render();
-  //void render(Scene const& scene);
+  void render(Scene const& scene);
   //Color trace(Scene const& scene, Ray const& ray);
   //Color shade(Shape const& shape, Ray const& ray, std::shared_ptr<Hit> hit, Scene const& scene);
   void write(Pixel const& p);

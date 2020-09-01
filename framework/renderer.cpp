@@ -8,6 +8,9 @@
 // -----------------------------------------------------------------------------
 
 #include "renderer.hpp"
+#include"ray.hpp"
+
+
 
 Renderer::Renderer(unsigned w, unsigned h, std::string const& file)
   : width_(w)
@@ -35,7 +38,7 @@ void Renderer::render()
   }
   ppm_.save(filename_);
 }
-/*
+
 void Renderer::render(Scene const& scene)
 {
     for (int i = 0; i < 2; ++i)
@@ -46,7 +49,7 @@ void Renderer::render(Scene const& scene)
             for (unsigned x = 0; x < width_; ++x)
             {
                 Pixel p(x, y);
-                Ray ray = scene.camera.shoot_ray(x,y, width_, height_);
+                Ray ray = scene.camera.shootRay(x,y, width_, height_);
                 Color color{0.0, 0.0, 0.0};
                 p.color = color;
                 write(p);
@@ -56,6 +59,7 @@ void Renderer::render(Scene const& scene)
     }
 }
 
+/*
 Color Renderer::trace(Scene const& scene, Ray const& ray)
 {
     Color backgroundColor{0.2, 0.2, 0.2};
@@ -84,8 +88,8 @@ Color Renderer::trace(Scene const& scene, Ray const& ray)
     }
     return backgroundColor;
 }
-*/
-/*
+
+
 Color Renderer::shade(Shape const& shape, Ray const& ray, std::shared_ptr<Hit> hit, Scene const& scene)
 {
     return { 0.0,0.0,1.0 };
